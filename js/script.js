@@ -50,12 +50,12 @@ buttonContent.addEventListener('click', (e) => {
         popUp.style.transition = `all ${.3}s ease`;
         popUp.style.opacity = "1"
         popUpHeader.classList.add("fade-bg");
+        recentPlayer = playerOne;
     }
     if (isChange) {
         switchPage(mainPage, mainGame);
         gameMode = "";
     }
-    recentPlayer = playerOne;
     // if()
 
 })
@@ -179,18 +179,18 @@ allBoard.addEventListener('click', function(e) {
         boardDisplay[currentPosition - 1] = recentPlayer;
         eachBoardDisplay(e.target, recentPlayer)
 
+
         if (winningOptions(recentPlayer)) {
             allBoard.style.pointerEvents = "none";
             return
         };
 
         //change turns
-        changeTurn(recentPlayer);
         //computer playing mode (EASY)
 
 
-
         recentPlayer = (recentPlayer == playerOne) ? playerTwo : playerOne;
+        changeTurn(recentPlayer);
 
         if (gameMode == 'computer' && recentPlayer == playerTwo && (isWin == false)) {
             changeTurn(recentPlayer);
@@ -369,21 +369,6 @@ function clearScore(dict) {
         element.remove();
     })
 }
-
-
-
-// //computer logic EASY MODE
-// function computerPlay() {
-//     let boardDisplayss = ['', '', '',
-//         '', '', '',
-//         '', '', ''
-//     ];
-
-//     while (boardDisplayss)
-
-// }
-
-
 
 
 
